@@ -14,34 +14,42 @@ const images = [
 ]
 
 let game = {
-    word: "testword",
-    hiddenWord: ''
+    word: "javascript",
+}
+
+String.prototype.replaceAt = function (index, replacement) {
+    return this.substr(0, index) + replacement + this.substr(index + replacement.length);
 }
 
 const Hangman = () => {
-
-    game.hiddenWord = '_ '.repeat(game.word.length)
-
     let [imgIndex, changeImgIndex] = useState(1)
+    let [hiddenWord, changeHidden] = useState('_'.repeat(game.word.length))
 
     const nextImage = () => {
         changeImgIndex(imgIndex + 1)
     }
+
+    let letters = [];
 
     document.addEventListener('keydown', (e) => {
         let pressedKey = e.key
         let check = game.word.search(pressedKey)
 
         if (check != -1) {
-
-            console.log(game.hiddenWord)
-
-            for (let i = 0; i < game.word.length; i++) {
+            for (let i = -1; i < game.word.length; i++) {
                 if (game.word.charAt(i) == pressedKey) {
-                    let letterPosition = i
-                    console.log('letter at ' + letterPosition)
+                    let index = i;
+                    let hiddenWordProp = hiddenWord;
+
+                    letters.push({ pressedKey, index })
+
+                    letters.forEach(letter => {
+                        hiddenWordProp = hiddenWordProp.replaceAt(letter.index, letter.pressedKey)
+                    })
+
+                    changeHidden(hiddenWordProp)
                 } else {
-                    continue
+
                 }
             }
 
@@ -53,7 +61,7 @@ const Hangman = () => {
     return (
         <>
             <div id="wordToGuess">{game.word}</div>
-            <div id="hiddenWord">{game.hiddenWord}</div>
+            <div id="hiddenWord">{hiddenWord}</div>
             <button onClick={nextImage}>next</button>
             <img src={images[imgIndex]}></img>
         </>
