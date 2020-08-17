@@ -13,7 +13,8 @@ body{
             flex: 0.3;
             height: 90%
         }
-        #hiddenWord{
+        #rightWrap{
+            flex-direction: column;
             letter-spacing: 7px;
             height: 100vh;
             flex: 0.7;
@@ -21,7 +22,22 @@ body{
             justify-content: center;
             align-items: center;
             font-size: 50px;
-            font-stretch: expanded;
+            .inWrap{
+                height: 5vh;
+            }
+            .hidden{
+                visibility: hidden;
+            }
+            #restart{
+                margin-top: 3vh;
+                border: solid 3px;
+                font-size: 27px;
+                letter-spacing: 0;
+                padding: 0 2vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
         }
     }
 }
