@@ -39,12 +39,18 @@
 <ellipse cx="1492.75" cy="909.744" rx="164" ry="208.5" transform="rotate(15.5 1492.75 909.744)" fill="#FFE6A5"/>
 <rect x="1425" y="884.165" width="59" height="14" transform="rotate(-29.2423 1425 884.165)" fill="black"/>
 <rect x="1425" y="884.165" width="59" height="14" transform="rotate(-29.2423 1425 884.165)" fill="black"/>
+<rect x="1289.53" y="2627" width="103" height="247" transform="rotate(5 1289.53 2627)" fill="#C4C4C4"/>
 <path d="M1474.11 898.603L1445.51 847L1433.27 853.787L1461.87 905.39L1474.11 898.603Z" fill="black"/>
 <rect x="1365" y="1150" width="119" height="57" fill="#FFE6A5"/>
 <ellipse cx="1179.5" cy="1741.5" rx="38.5" ry="37.5" fill="#FFE6A5"/>
 <rect x="1514.09" y="905.426" width="59" height="14" transform="rotate(-29.2423 1514.09 905.426)" fill="black"/>
 <rect x="1514.09" y="905.426" width="59" height="14" transform="rotate(-29.2423 1514.09 905.426)" fill="black"/>
 <path d="M1229.41 1170.78L1260.91 1177.73L1286.46 1193.45L1302.53 1215.97L1303.36 1242.34L1229.82 1749.98L1135 1734.96L1229.41 1170.78Z" fill="#ACACAC"/>
+<ellipse rx="38.5" ry="37.5" transform="matrix(-1 0 0 1 1661.5 1746.5)" fill="#FFE6A5"/>
+<path d="M1616.07 1170.78L1584.57 1177.72L1559.01 1193.38L1542.92 1215.8L1542.07 1242.03L1615.19 1747.01L1710.01 1731.99L1616.07 1170.78Z" fill="#ACACAC"/>
+<rect x="1275.64" y="1783" width="138" height="876" transform="rotate(0.5 1275.64 1783)" fill="#646464"/>
+<rect width="103" height="247" transform="matrix(-0.996195 0.0871557 0.0871557 0.996195 1569.11 2627)" fill="#C4C4C4"/>
+<rect width="138" height="876" transform="matrix(-0.999962 0.00872654 0.00872654 0.999962 1582.99 1783)" fill="#646464"/>
 <path d="M1229 1171L1338 1150H1366.5L1384 1173L1399 1184L1424.25 1188L1450 1185L1467 1176L1482 1150H1521L1616 1170L1623 1480.5L1610 1704L1616 1873H1229L1224 1771L1232 1336L1229 1171Z" fill="#C4C4C4"/>
 <path d="M1563.21 919.864L1534.6 868.262L1522.36 875.049L1550.96 926.652L1563.21 919.864Z" fill="black"/>
 <rect x="1425.04" y="982.062" width="101" height="15" transform="rotate(12.5 1425.04 982.062)" fill="black"/>

@@ -8,9 +8,10 @@ import h5 from './img/h5.svg'
 import h6 from './img/h6.svg'
 import h7 from './img/h7.svg'
 import h8 from './img/h8.svg'
+import h9 from './img/h9.svg'
 
 const images = [
-    h1, h2, h3, h4, h5, h6, h7, h8
+    h1, h2, h3, h4, h5, h6, h7, h8, h9
 ]
 
 let game = {
@@ -27,7 +28,7 @@ String.prototype.replaceAt = function (index, replacement) {
 class Hangman extends Component {
 
     state = {
-        imgIndex: 1,
+        imgIndex: 0,
         hiddenWord: '_'.repeat(game.word.length)
     }
 
@@ -78,70 +79,16 @@ class Hangman extends Component {
     render() {
         return (
             <>
-                <div id="wordToGuess">{game.word}</div>
-                <button onClick={this.nextImage}>next</button>
+                {/* <div id="wordToGuess">{game.word}</div>
+                <button onClick={this.nextImage}>next</button> */}
 
-                <div id="hiddenWord">{this.state.hiddenWord}</div>
                 <img src={images[this.state.imgIndex]}></img>
+                <div id="hiddenWord">{this.state.hiddenWord}</div>
+
             </>
         )
     }
 
 }
-/*
-
-const Hangman = () => {
-    let [imgIndex, changeImgIndex] = useState(1)
-    let [hiddenWord, changeHidden] = useState('_'.repeat(game.word.length))
-
-    const nextImage = () => {
-        changeImgIndex(imgIndex + 1)
-    }
-
-    let letters = [];
-
-    document.addEventListener('keydown', (e) => {
-        e.preventDefault()
-
-        let pressedKey = e.key
-        let check = game.word.search(pressedKey)
-
-        console.log('elo')
-
-        if (check != -1) {
-            for (let i = -1; i < game.word.length; i++) {
-                if (game.word.charAt(i) == pressedKey) {
-                    let index = i;
-                    let hiddenWordProp = hiddenWord;
-
-                    letters.push({ pressedKey, index })
-
-                    letters.forEach(letter => {
-                        hiddenWordProp = hiddenWordProp.replaceAt(letter.index, letter.pressedKey)
-                    })
-
-                    changeHidden(hiddenWordProp)
-                } else {
-
-                }
-            }
-
-        } else {
-            nextImage()
-        }
-    })
-
-    return (
-        <>
-            
-            <div id="wordToGuess">{game.word}</div>
-            <button onClick={nextImage}>next</button>
-            
-            <div id="hiddenWord">{hiddenWord}</div>
-            <img src={images[imgIndex]}></img>
-        </>
-    )
-
-*/
 
 export default Hangman

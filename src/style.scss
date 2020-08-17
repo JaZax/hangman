@@ -1,15 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap');
+
 body{
     margin: 0;
     padding: 0;
-    background: #1a1a1a;
-    color: #818181;
+    font-family: 'DM Mono', monospace;
     #App{
+        display: flex;
+        align-items: flex-end;
         height: 100vh;
         position: relative;
         img{
-            position: absolute;
-            bottom: 0;
-            height: 75%;
+            flex: 0.3;
+            height: 90%
+        }
+        #hiddenWord{
+            letter-spacing: 7px;
+            height: 100vh;
+            flex: 0.7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            font-stretch: expanded;
         }
     }
 }
