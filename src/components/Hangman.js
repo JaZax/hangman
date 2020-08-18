@@ -21,7 +21,8 @@ const images = [
 
 let game = {
     word: "javascript", //  API
-    over: false
+    over: false,
+    win: false,
 }
 
 class Hangman extends Component {
@@ -31,7 +32,7 @@ class Hangman extends Component {
         hiddenWord: '_'.repeat(game.word.length)
     }
 
-    minusLive = () => {
+    minusLife = () => {
         if (this.state.imgIndex < 7) {
             this.setState({ imgIndex: this.state.imgIndex + 1 })
         } else {
@@ -44,6 +45,7 @@ class Hangman extends Component {
         this.setState({ imgIndex: 0, hiddenWord: '_'.repeat(game.word.length) })
         // game.word  API
         game.over = false
+        game.win = false
         this.letters = [];
         this.guessedLetters = [];
     }
@@ -52,8 +54,7 @@ class Hangman extends Component {
     guessedLetters = [];
 
     handleKeyDown = (e) => {
-
-        if (game.over == false) {
+        if (game.over == false && game.win == false) {
             let pressedKey = e.key
             let check = game.word.search(pressedKey)
 
@@ -61,7 +62,7 @@ class Hangman extends Component {
                 if (!this.guessedLetters.includes(pressedKey)) {
                     this.guessedLetters.push(pressedKey)
                 } else {
-                    this.minusLive()
+                    this.minusLife()
                 }
 
                 for (let i = -1; i < game.word.length; i++) {
@@ -75,15 +76,19 @@ class Hangman extends Component {
                             hiddenWordProp = hiddenWordProp.replaceAt(letter.index, letter.pressedKey)
                         })
                         this.setState({ hiddenWord: hiddenWordProp })
-                    } else {
+
+                        if (hiddenWordProp == game.word) {
+                            game.win = true
+                        }
                     }
                 }
 
             } else {
-                this.minusLive()
+                this.minusLife()
             }
         }
     }
+
     componentDidMount() {
         window.addEventListener('keydown', this.handleKeyDown);
     }
@@ -101,8 +106,8 @@ class Hangman extends Component {
                 <img src={images[this.state.imgIndex]}></img>
                 <div id="rightWrap">
                     <div className="inWrap" id="hiddenWord">{game.over ? game.word : this.state.hiddenWord}</div>
-                    <div className={game.over ? 'inWrap' : 'hidden'} id="restart" onClick={this.restart}>{game.over ? 'restart' : ''} </div>
-
+                    <div className={game.over ? 'inWrap' : 'hidden'} id="btn" onClick={this.restart}>{game.over ? 'restart' : ''} </div>
+                    <div className={this.state.hiddenWord == game.word ? 'inWrap' : 'hidden'} id="btn" onClick={this.restart}>{this.state.hiddenWord == game.word ? 'next word' : ''}</div>
                 </div>
 
             </>
