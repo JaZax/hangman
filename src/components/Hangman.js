@@ -20,7 +20,7 @@ const images = [
 ]
 
 let game = {
-    word: "javascript", //  API
+    word: "javascript", 
     over: false,
     win: false,
 }
@@ -28,6 +28,7 @@ let game = {
 class Hangman extends Component {
 
     state = {
+        word: game.word,
         imgIndex: 0,
         hiddenWord: '_'.repeat(game.word.length)
     }
@@ -42,12 +43,17 @@ class Hangman extends Component {
     }
 
     restart = () => {
-        this.setState({ imgIndex: 0, hiddenWord: '_'.repeat(game.word.length) })
-        // game.word  API
-        game.over = false
-        game.win = false
-        this.letters = [];
-        this.guessedLetters = [];
+        fetch(`http://api.wordnik.com/v4/words.json/randomWord?api_key=`)
+        .then(response => response.json())
+        .then(data => {
+            game.word = data.word
+            this.setState({ imgIndex: 0, hiddenWord: '_'.repeat(game.word.length) })
+            game.over = false
+            game.win = false
+            this.letters = [];
+            this.guessedLetters = [];
+
+        })
     }
 
     letters = [];
